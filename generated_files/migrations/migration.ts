@@ -23,6 +23,11 @@ public async up(queryRunner: QueryRunner): Promise<void> {
             isNullable: true,
           },  
           {
+            name: 'data',
+            type: 'datetime',
+            isNullable: true,
+          },  
+          {
             name: 'created_at',
             type: 'timestamp',
             default: 'now()',

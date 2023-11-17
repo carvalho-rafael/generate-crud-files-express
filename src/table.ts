@@ -12,7 +12,13 @@ const table = {
     {
       name: 'type',
       type: `enum('location', 'sale')`,
-      jsType: 'number',
+      jsType: 'string',
+      null: true,
+    },
+    {
+      name: 'data',
+      type: `datetime`,
+      jsType: 'Date',
       null: true,
     },
   ],

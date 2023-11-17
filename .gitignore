@@ -8,3 +8,4 @@ dist/*
 !tmp/.gitkeep
 !uploads/tasks/attachments/.gitkeep
 src/modules/financial/cert
+generated_files/

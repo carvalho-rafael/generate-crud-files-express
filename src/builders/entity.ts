@@ -2,12 +2,18 @@ import fs from 'fs';
 import table from '../table';
 
 export default function buildEntity() {
-  const { entity, name, columns, relations, entityCamel } = table;
+  const { entity, module, name, columns, relations, entityCamel } = table;
 
   let fileString = `\
 import { MainEntity } from '@shared/infra/typeorm/entities/MainEntity';
-import { Entity, Column } from 'typeorm';
-
+import { Entity, Column${relations.length ? ', ' : ''}${relations
+    .map(r => r.type)
+    .join(' ,')} } from 'typeorm';
+${relations.map(
+  r => `\
+import ${r.entity} from '@modules/${module}/infra/typeorm/entities/${r.entity}';
+`,
+)}
 @Entity({ name: '${name}' })
 class ${entity} {
 `;
