@@ -1,0 +1,10 @@
+.vscode/
+node_modules/
+tmp/*
+uploads
+ormconfig.json
+.env
+dist/*
+!tmp/.gitkeep
+!uploads/tasks/attachments/.gitkeep
+src/modules/financial/cert

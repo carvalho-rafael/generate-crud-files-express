@@ -1,0 +1,33 @@
+{
+  "name": "generate-files",
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": "Rafael Carvalho",
+  "license": "MIT",
+  "scripts": {
+    "build": "babel src --extensions \".js,.ts\" --out-dir dist --copy-files",
+    "dev:server": "ts-node-dev -r tsconfig-paths/register --inspect --transpile-only --ignore-watch node_modules src/index.ts",
+    "start": "ts-node src/index.ts",
+    "typeorm": "ts-node-dev -r tsconfig-paths/register ./node_modules/typeorm/cli.js",
+    "test": "jest",
+    "swagger-autogen": "node src/shared/infra/http/swagger.mjs"
+  },
+  "devDependencies": {
+    "@babel/preset-typescript": "^7.13.0",
+    "@types/node": "^20.4.5",
+    "@typescript-eslint/eslint-plugin": "^6.11.0",
+    "@typescript-eslint/parser": "^6.11.0",
+    "babel-plugin-module-resolver": "^5.0.0",
+    "babel-plugin-transform-typescript-metadata": "^0.3.2",
+    "eslint": "^8.53.0",
+    "eslint-config-airbnb-base": "^15.0.0",
+    "eslint-config-prettier": "^9.0.0",
+    "eslint-import-resolver-typescript": "^3.6.1",
+    "eslint-plugin-import": "^2.22.1",
+    "eslint-plugin-prettier": "^5.0.1",
+    "prettier": "^3.1.0",
+    "ts-node-dev": "^2.0.0",
+    "typescript": "^5.2.2"
+  },
+  "dependencies": {}
+}
