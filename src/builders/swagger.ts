@@ -20,10 +20,10 @@ ${entity}: {
       default:
         value = `''`;
     }
-    fileString += `  ${c.name}: ${value};\n`;
+    fileString += `  ${c.name}: ${value},\n`;
   });
 
-  fileString += `}
+  fileString += `},
 `;
 
   fs.writeFileSync(`generated_files/swagger.ts`, fileString);

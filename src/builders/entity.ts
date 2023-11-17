@@ -15,7 +15,7 @@ import ${r.entity} from '@modules/${module}/infra/typeorm/entities/${r.entity}';
 `,
 )}
 @Entity({ name: '${name}' })
-class ${entity} {
+class ${entity} extends MainEntity {
 `;
   columns.forEach(c => {
     fileString += `\

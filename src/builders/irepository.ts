@@ -14,7 +14,7 @@ export default interface I${entityPlural}Repository {
   create(data: ICreate${entity}DTO): Promise<${entity}>;
   save(data: Partial<${entity}>): Promise<${entity}>;
   delete(id: number): Promise<void>;
-};
+}
 `;
 
   fs.writeFileSync(

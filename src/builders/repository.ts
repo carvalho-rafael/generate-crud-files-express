@@ -11,7 +11,7 @@ import { getRepository, Repository } from 'typeorm';
 import I${entityPlural}Repository from '@modules/${module}/repositories/I${entityPlural}Repository';
 import ICreate${entity}DTO from '@modules/${module}/dtos/ICreate${entity}DTO';
 import ${entity} from '../entities/${entity}';
-  
+
 class ${entityPlural}Repository implements I${entityPlural}Repository {
   private ormRepository: Repository<${entity}>;
 
@@ -49,7 +49,7 @@ class ${entityPlural}Repository implements I${entityPlural}Repository {
     await this.ormRepository.delete(id);
   }
 }
-  
+
 export default ${entityPlural}Repository;
 `;
 
