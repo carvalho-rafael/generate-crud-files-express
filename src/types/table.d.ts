@@ -9,7 +9,7 @@ export type Table = {
   cacheList: string;
   columns: { name: string; type: string; jsType: string; null: boolean }[];
   relations: {
-    name: string;
+    tableName: string;
     column: string;
     relatedColumn: string;
     entity: string;

@@ -59,10 +59,10 @@ public async up(queryRunner: QueryRunner): Promise<void> {
     await queryRunner.createForeignKey(
       '${name}',
       new TableForeignKey({
-        name: 'fk_${name}_${relation.name}',
+        name: 'fk_${name}_${relation.tableName}',
         columnNames: ['${relation.column}'],
         referencedColumnNames: ['${relation.relatedColumn}'],
-        referencedTableName: '${relation.name}',
+        referencedTableName: '${relation.tableName}',
         onDelete: 'CASCADE',
         onUpdate: 'CASCADE',
       }),
@@ -82,7 +82,7 @@ public async up(queryRunner: QueryRunner): Promise<void> {
     ?.filter(relation => relation.type === 'ManyToOne')
     ?.forEach(relation => {
       fileString += `\
-      await queryRunner.dropForeignKey('${name}', 'fk_${name}_${relation.name}');
+      await queryRunner.dropForeignKey('${name}', 'fk_${name}_${relation.tableName}');
 `;
     });
   fileString += `\

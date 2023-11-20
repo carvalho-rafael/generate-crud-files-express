@@ -8,7 +8,7 @@ export default function buildEntity() {
 import { MainEntity } from '@shared/infra/typeorm/entities/MainEntity';
 import { Entity, Column${relations.length ? ', ' : ''}${relations
     .map(r => r.type)
-    .join(' ,')} } from 'typeorm';
+    .join(', ')} } from 'typeorm';
 ${relations.map(
   r => `\
 import ${r.entity} from '@modules/${module}/infra/typeorm/entities/${r.entity}';
