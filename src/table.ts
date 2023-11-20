@@ -1,4 +1,6 @@
-const table = {
+import { Table } from 'types/table';
+
+const table: Table = {
   module: 'commercial',
   name: 'orders_domains_emails',
   entity: 'OrderDomainEmail',

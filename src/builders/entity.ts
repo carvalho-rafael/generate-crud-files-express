@@ -20,7 +20,7 @@ class ${entity} extends MainEntity {
   columns.forEach(c => {
     fileString += `\
   @Column()
-  ${c.name}: ${c.jsType};
+  ${c.name}${c.null ? '?' : ''}: ${c.jsType};
 
 `;
   });
