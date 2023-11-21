@@ -9,4 +9,5 @@ dist/*
 !uploads/tasks/attachments/.gitkeep
 src/modules/financial/cert
 generated_files/
+generated_files_helpers/
 history/
