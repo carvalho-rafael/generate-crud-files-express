@@ -1,3 +1,4 @@
+import cleanFolders from 'cleanFolders';
 import buildController from 'builders/controller';
 import buildDto from 'builders/dto';
 import buildEntity from 'builders/entity';
@@ -11,6 +12,8 @@ import buildServiceGet from 'builders/service_get';
 import buildServiceList from 'builders/service_list';
 import buildServiceUpdate from 'builders/service_update';
 import buildSwagger from 'builders/swagger';
+
+cleanFolders();
 
 buildEntity();
 buildIRepository();

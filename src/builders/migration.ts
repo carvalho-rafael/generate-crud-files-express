@@ -90,6 +90,5 @@ public async up(queryRunner: QueryRunner): Promise<void> {
     }
   }
 `;
-
-  fs.writeFileSync(`generated_files/migrations/migration.ts`, fileString);
+  fs.writeFileSync(`generated_files_helpers/migration.ts`, fileString);
 }

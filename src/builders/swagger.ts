@@ -26,5 +26,5 @@ ${entity}: {
   fileString += `},
 `;
 
-  fs.writeFileSync(`generated_files/swagger.ts`, fileString);
+  fs.writeFileSync(`generated_files_helpers/swagger.ts`, fileString);
 }
