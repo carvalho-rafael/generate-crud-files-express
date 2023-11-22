@@ -18,9 +18,24 @@ import ${r.entity} from '@modules/${module}/infra/typeorm/entities/${r.entity}';
 class ${entity} extends MainEntity {
 `;
   columns.forEach(c => {
+    let jsType;
+    if (
+      c.type.includes('char') ||
+      c.type === 'text' ||
+      c.type.includes('ENUM') ||
+      c.type.includes('decimal')
+    ) {
+      jsType = 'string';
+    } else if (c.type.includes('date')) {
+      jsType = 'date';
+    } else if (c.type === 'int') {
+      jsType = 'number';
+    } else if (c.type === 'boolean') {
+      jsType = 'boolean';
+    }
     fileString += `\
   @Column()
-  ${c.name}${c.null ? '?' : ''}: ${c.jsType};
+  ${c.name}${c.null ? '?' : ''}: ${jsType};
 
 `;
   });

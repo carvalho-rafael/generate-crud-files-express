@@ -7,7 +7,7 @@ export type Table = {
   entityPluralCamel: string;
   cache: string;
   cacheList: string;
-  columns: { name: string; type: string; jsType: string; null: boolean }[];
+  columns: { name: string; type: string; null: boolean }[];
   relations: {
     tableName: string;
     column: string;

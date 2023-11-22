@@ -9,8 +9,23 @@ ${entity}: {
 `;
 
   columns.forEach(c => {
+    let jsType;
+    if (
+      c.type.includes('char') ||
+      c.type === 'text' ||
+      c.type.includes('ENUM') ||
+      c.type.includes('decimal')
+    ) {
+      jsType = 'string';
+    } else if (c.type.includes('date')) {
+      jsType = 'date';
+    } else if (c.type === 'int') {
+      jsType = 'number';
+    } else if (c.type === 'boolean') {
+      jsType = 'boolean';
+    }
     let value;
-    switch (c.jsType) {
+    switch (jsType) {
       case 'number':
         value = 0;
         break;

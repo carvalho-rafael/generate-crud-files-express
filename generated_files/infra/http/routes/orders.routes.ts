@@ -1,15 +1,15 @@
 import { Router } from 'express';
-import OrdersNotesServicesController from '@modules/commercial/infra/http/controllers/OrdersNotesServicesController';
+import OrdersController from '@modules/commercial/infra/http/controllers/OrdersController';
 import { celebrate, Joi, Segments } from 'celebrate';
 
-const ordersNotesServicesRouter = Router();
-const ordersNotesServicesController = new OrdersNotesServicesController();
+const ordersRouter = Router();
+const ordersController = new OrdersController();
 
-ordersNotesServicesRouter.get('/', ordersNotesServicesController.list, () => {
+ordersRouter.get('/', ordersController.list, () => {
   /*
-      #swagger.path = '/commercial/ordersNotesServices'
-      #swagger.tags = ['OrderNoteService']
-      #swagger.description = "List all ordersNotesServices"
+      #swagger.path = '/commercial/orders'
+      #swagger.tags = ['Order']
+      #swagger.description = "List all orders"
       #swagger.security = [{
         "bearerAuth": []
       }]
@@ -22,19 +22,19 @@ ordersNotesServicesRouter.get('/', ordersNotesServicesController.list, () => {
    */
 });
 
-ordersNotesServicesRouter.get(
+ordersRouter.get(
   '/view/:id',
   celebrate({
     [Segments.PARAMS]: {
       id: Joi.number().integer().required(),
     },
   }),
-  ordersNotesServicesController.get,
+  ordersController.get,
   () => {
     /*
-      #swagger.path = '/commercial/ordersNotesServices/view/{id}'
-      #swagger.tags = ['OrderNoteService']
-      #swagger.description = "View orderNoteService"
+      #swagger.path = '/commercial/orders/view/{id}'
+      #swagger.tags = ['Order']
+      #swagger.description = "View order"
       #swagger.security = [{
         "bearerAuth": []
       }]
@@ -42,7 +42,7 @@ ordersNotesServicesRouter.get(
         description: "Unauthorized"
       }
       #swagger.responses[404] = {
-        description: "Not found orderNoteService"
+        description: "Not found order"
       }
       #swagger.responses[200] = {
         description: "OK",
@@ -51,11 +51,11 @@ ordersNotesServicesRouter.get(
   },
 );
 
-ordersNotesServicesRouter.post('/create', ordersNotesServicesController.create, () => {
+ordersRouter.post('/create', ordersController.create, () => {
   /*
-      #swagger.path = '/commercial/ordersNotesServices/create'
-      #swagger.tags = ['OrderNoteService']
-      #swagger.description = "Create orderNoteService"
+      #swagger.path = '/commercial/orders/create'
+      #swagger.tags = ['Order']
+      #swagger.description = "Create order"
             #swagger.security = [{
       "bearerAuth": []
       }]
@@ -73,18 +73,18 @@ ordersNotesServicesRouter.post('/create', ordersNotesServicesController.create, 
               content: {
                   "application/json": {
                       schema: {
-                        "$ref": "#/components/schemas/OrderNoteService"
+                        "$ref": "#/components/schemas/Order"
                        },
                   }
               }
           }
     } */
 });
-ordersNotesServicesRouter.put('/update/:id', ordersNotesServicesController.update, () => {
+ordersRouter.put('/update/:id', ordersController.update, () => {
   /*
-      #swagger.path = '/commercial/ordersNotesServices/update/{id}'
-      #swagger.tags = ['OrderNoteService']
-      #swagger.description = "Update orderNoteService"
+      #swagger.path = '/commercial/orders/update/{id}'
+      #swagger.tags = ['Order']
+      #swagger.description = "Update order"
             #swagger.security = [{
       "bearerAuth": []
       }]
@@ -102,7 +102,7 @@ ordersNotesServicesRouter.put('/update/:id', ordersNotesServicesController.updat
               content: {
                   "application/json": {
                       schema: {
-                        "$ref": "#/components/schemas/OrderNoteService"
+                        "$ref": "#/components/schemas/Order"
                        },
                   }
               }
@@ -110,19 +110,19 @@ ordersNotesServicesRouter.put('/update/:id', ordersNotesServicesController.updat
     } */
 });
 
-ordersNotesServicesRouter.delete(
+ordersRouter.delete(
   '/delete/:id',
   celebrate({
     [Segments.PARAMS]: {
       id: Joi.number().integer().required(),
     },
   }),
-  ordersNotesServicesController.delete,
+  ordersController.delete,
   () => {
     /*
-      #swagger.path = '/commercial/ordersNotesServices/delete/{id}'
-      #swagger.tags = ['OrderNoteService']
-      #swagger.description = "Delete orderNoteService"
+      #swagger.path = '/commercial/orders/delete/{id}'
+      #swagger.tags = ['Order']
+      #swagger.description = "Delete order"
       #swagger.security = [{
       "bearerAuth": []
       }]
@@ -130,7 +130,7 @@ ordersNotesServicesRouter.delete(
         description: "Unauthorized"
       }
       #swagger.responses[404] = {
-        description: "Not found orderNoteService"
+        description: "Not found order"
       }
       #swagger.responses[204] = {
         description: "No Content",
@@ -139,4 +139,4 @@ ordersNotesServicesRouter.delete(
   },
 );
 
-export default ordersNotesServicesRouter;
+export default ordersRouter;
